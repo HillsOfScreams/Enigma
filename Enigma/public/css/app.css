@@ -1,10 +1,4 @@
-<<<<<<< HEAD:Enigma/public/css/app.css
-@import "node_modules/font-awesome/scss/font-awesome.scss";  
-=======
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
->>>>>>> 47800f877b395b8f5dd0f41d501ff13dbf7ce57c:Enigma/resources/css/app.css
+
 
 * {
     margin: 0px;
