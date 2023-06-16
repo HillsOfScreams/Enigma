@@ -4,16 +4,15 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex">
             <!-- Left Side Menu -->
             <div class="w-1/4 pr-4">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg ">
                     <div class="p-4 left_row_users">
                         <div class="text-lg font-semibold mb-4">Chat</div>
                         <!-- Search bar here -->
-                        <div class="flex items-center space-x-2 mb-2 ">
+                        <div class="flex items-center space-x-2 mb-2">
                             <div class="text-gray-800 dark:text-gray-10 w-full">
                                 <input type="text" id="search" placeholder="Search users" />
                             </div>
@@ -30,7 +29,7 @@
             <div class="w-3/4 pl-4">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
-                        <div class="flex flex-col space-y-4">
+                        <div class="flex flex-col space-y-4 h-96 overflow-y-auto">
                             <div class="flex items-start">
                                 <div class="rounded-full bg-gray-300 w-10 h-10 flex-shrink-0"></div>
                                 <div class="ml-4 p-4 rounded-lg bg-gray-200 dark:bg-gray-700">
@@ -61,11 +60,20 @@
                                 <div class="rounded-full bg-gray-300 w-10 h-10 flex-shrink-0"></div>
                             </div>
                         </div>
+
+                        <!-- Input field for sending messages -->
+                        <div class="flex items-center space-x-2 mt-4">
+                            <div class="text-gray-800 dark:text-gray-10 w-full">
+                                <input type="text" id="message" placeholder="Type your message" class="w-full" />
+                            </div>
+                            <button class="px-4 py-2 bg-blue-500 text-white rounded-md">Send</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
