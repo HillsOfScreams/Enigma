@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::post('/dashboard/search', [SearchController::class, 'search'])->name('dashboard.search');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+
