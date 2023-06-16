@@ -15,3 +15,27 @@
     0% { top: 0; left: 0; }
     100% { top: 10px; left: 10px; }
   }
+
+.left_row_users {
+  color: white;
+}
+
+.left_row_users form {
+  margin-bottom: 20px;
+}
+
+.left_row_users .input-group input {
+  background-color: #1f2937;
+  border: 1px solid #fdfdfd;
+  border-radius: 10px;
+  color: white;
+}
+
+.left_row_users .input-group input:focus {
+  border: #1f2937;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+}

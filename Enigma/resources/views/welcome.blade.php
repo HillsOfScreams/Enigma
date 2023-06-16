@@ -10,6 +10,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('style.css') }}" id="maincss">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="min-h-screen bg-gray-100">
