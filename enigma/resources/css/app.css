@@ -7,11 +7,3 @@
     background-color: red!important;
 }
 
-.button:hover {
-    animation: moveButton 1s infinite alternate;
-  }
-  
-  @keyframes moveButton {
-    0% { top: 0; left: 0; }
-    100% { top: 10px; left: 10px; }
-  }
