@@ -8,22 +8,22 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex">
             <!-- Left Side Menu -->
-<div class="w-1/4 pr-4">
-    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-4 left_row_users">
-            <div class="text-lg font-semibold mb-4">Chat</div>
-            <!-- Search bar here -->
-            <div class="flex items-center space-x-2 mb-2">
-                <div class="text-gray-800 dark:text-gray-100">
-                    <input type="text" id="search" placeholder="Search users" />
+            <div class="w-1/4 pr-4">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-4 left_row_users">
+                        <div class="text-lg font-semibold mb-4">Chat</div>
+                        <!-- Search bar here -->
+                        <div class="flex items-center space-x-2 mb-2 ">
+                            <div class="text-gray-800 dark:text-gray-10 w-full">
+                                <input type="text" id="search" placeholder="Search users" />
+                            </div>
+                        </div>
+                        <!-- Display the users -->
+                        <div class="flex search-result items-start  mb-2 flex-col">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Display the users -->
-            <div class="flex search-result items-center space-x-2 mb-2">
-            </div>
-        </div>
-    </div>
-</div>
 
 
             <!-- Chat Area -->
@@ -69,60 +69,61 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
-    var searchInput = $('#search');
-    var userContainer = $('.search-result');
-    var searchBar = $('.search-bar');
-    var previousResults = [];
+        $(document).ready(function() {
+            var searchInput = $('#search');
+            var userContainer = $('.search-result');
+            var searchBar = $('.search-bar');
+            var previousResults = [];
 
-    searchInput.on('input', function() {
-        var query = searchInput.val();
+            searchInput.on('input', function() {
+                var query = searchInput.val();
 
-        if (query.length > 0) {
-            $.ajax({
-                url: '/search',
-                type: 'GET',
-                data: {query: query},
-                success: function(response) {
-                    var users = response.users;
+                if (query.length > 0) {
+                    $.ajax({
+                        url: '/search',
+                        type: 'GET',
+                        data: {
+                            query: query
+                        },
+                        success: function(response) {
+                            var users = response.users;
 
+                            userContainer.empty();
+
+                            if (users.length > 0) {
+                                users.forEach(function(user) {
+                                    var userElement = '<div class="flex items-center  mb-2 gap-2.5">' +
+                                        '<div class="rounded-full bg-blue-500 w-10 h-10 flex-shrink-0"></div>' +
+                                        '<div class="text-gray-800 dark:text-gray-100">' + user.name + '</div>' +
+                                        '</div>';
+
+                                    userContainer.append(userElement);
+
+                                    previousResults.push(user);
+                                });
+                            } else {
+                                var noUsersElement = '<div class="text-gray-800 dark:text-gray-100">No users found</div>';
+                                userContainer.append(noUsersElement);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Search error:', error);
+                        }
+                    });
+                } else {
                     userContainer.empty();
-
-                    if (users.length > 0) {
-                        users.forEach(function(user) {
-                            var userElement = '<div class="flex items-center space-x-2 mb-2">' +
-                                                '<div class="rounded-full bg-blue-500 w-10 h-10 flex-shrink-0"></div>' +
-                                                '<div class="text-gray-800 dark:text-gray-100">' + user.name + '</div>' +
-                                            '</div>';
-
-                            userContainer.append(userElement);
-
-                            previousResults.push(user);
-                        });
-                    } else {
-                        var noUsersElement = '<div class="text-gray-800 dark:text-gray-100">No users found</div>';
-                        userContainer.append(noUsersElement);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Search error:', error);
                 }
             });
-        } else {
-            userContainer.empty();
-        }
-    });
 
-    searchInput.on('focus', function() {
-        searchBar.addClass('active');
-    });
+            searchInput.on('focus', function() {
+                searchBar.addClass('active');
+            });
 
-    searchInput.on('blur', function() {
-        searchBar.removeClass('active');
-    });
-});
-
-</script>
+            searchInput.on('blur', function() {
+                searchBar.removeClass('active');
+            });
+        });
+    </script>
 
 
 
