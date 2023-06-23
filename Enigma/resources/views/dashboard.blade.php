@@ -61,10 +61,21 @@
             </div>
 
             <!-- Left Side Menu -->
-            <div class="w-full sm:w-1/4 pl-4 pb-4">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="w-full sm:w-1/4 pl-4 pb-4 ">
+                <div class="flex items-center space-x-2 mb-2 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <select id="delete-time" class="w-full dark:bg-gray-800 dark:text-gray-100 text-gray-800 border-transparent">
+                        <option value="" selected disabled hidden> Delete chats after</option>
+                        <option value="0">No deletion</option>
+                        <option value="1">1 minute</option>
+                        <option value="5">30 minutes</option>
+                        <option value="10">1 Hour</option>
+                        <!-- Voeg meer opties toe indien nodig -->
+                    </select>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg ">
                     <div class="p-4 left_row_users">
-                        <div class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Chat</div>
+                        <div class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100 ">Chat</div>
                         <!-- Search bar here -->
                         <div class="flex items-center space-x-2 mb-2">
                             <div class="text-gray-800 dark:text-gray-10 w-full">
@@ -79,12 +90,6 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
