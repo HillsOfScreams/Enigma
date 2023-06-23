@@ -34,3 +34,8 @@ color: white;
 .left_row_users .input-group input:focus {
 border: #1f2937;
 }
+
+.search-result-click {
+  cursor: pointer;
+  width: 100%;
+}
