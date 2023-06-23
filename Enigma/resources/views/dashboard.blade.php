@@ -15,7 +15,7 @@
                 <!-- Username -->
                 <div id="chat-username" class="mb-4 text-lg font-semibold text-gray-800 dark:text-gray-100 pb-4"></div>
 
-                <div class="flex flex-col space-y-4 h-96 overflow-y-auto">
+                <div id="chatContainer" class="flex flex-col space-y-4 h-96 overflow-y-auto">
                     <!-- Chat messages -->
                 </div>
 
@@ -55,6 +55,7 @@
         $(document).ready(function() {
             var searchInput = $('#search');
             var userContainer = $('.search-result');
+            var chatContainer = $('#chatContainer');
             var chatArea = $('#chat-area');
             var chatUsername = $('#chat-username');
             var searchBar = $('.search-bar');
@@ -113,10 +114,32 @@
             });
 
             function openChatArea(user) {
-                chatUsername.text(user.name);
-                chatArea.show();
-                // Additional logic to load chat messages and handle sending messages
-            }
+    chatUsername.text(user.name);
+    chatArea.show();
+
+    // Clear previous chat messages
+    chatContainer.empty();
+
+    // Chat app
+    var chatReceive = $('<div class="flex items-start">' +
+        '<div class="rounded-full bg-gray-300 w-10 h-10 flex-shrink-0"></div>' +
+        '<div class="ml-4 p-4 rounded-lg bg-gray-200 dark:bg-gray-700">' +
+        '<div class="text-xs text-gray-500">' + user.name + '</div>' +
+        '<div class="text-sm text-gray-800 dark:text-gray-100">Hello! How can I assist you today?</div>' +
+        '</div>' +
+        '</div>');
+
+    var chatSend = $('<div class="flex items-end justify-end">' +
+        '<div class="mr-4 p-4 rounded-lg bg-blue-500 text-white dark:bg-blue-800">' +
+        '<div class="text-sm">Sure! I\'m here to help.</div>' +
+        '</div>' +
+        '<div class="rounded-full bg-gray-300 w-10 h-10 flex-shrink-0"></div>' +
+        '</div>');
+
+    chatContainer.append(chatReceive);
+    chatContainer.append(chatSend);
+}
+
         });
     </script>
 </x-app-layout>
