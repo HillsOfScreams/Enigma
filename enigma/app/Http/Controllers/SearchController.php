@@ -12,7 +12,9 @@ class SearchController extends Controller
         $query = $request->input('query');
 
         // Perform the search query on the User model
-        $users = User::where('name', 'like', '%' . $query . '%')->get();
+        $users = User::where('name', 'like', '%' . $query . '%')
+            ->where('id', '!=', auth()->user()->id) // Exclude the current authenticated user
+            ->get();
 
         return response()->json(['users' => $users]);
     }
